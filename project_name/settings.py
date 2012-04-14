@@ -122,6 +122,18 @@ INSTALLED_APPS = (
     '{{project_name}}'
 )
 
+ACCOUNT_ACTIVATION_DAYS = 2,
+
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
+}
+
+INTERNAL_IPS = ('127.0.0.1',)
+
+LOGIN_URL = '/login'
+
+LOGOUT_URL = '/logout'
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
@@ -150,3 +162,8 @@ LOGGING = {
         },
     }
 }
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
